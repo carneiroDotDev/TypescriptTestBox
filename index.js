@@ -65,6 +65,13 @@
 //     name: 'Luiz',
 //     age: 30
 // }
+// 10. Type Never 
+// function neverReturns(): never {
+//     throw new Error('We should not reach this code block')
+// }
+// neverReturns()
+// Different of voids since it representes a piece of code that 
+// one should dsiscard . 
 //  ** Applying Types ** 
 // 1. functions 
 // It is important to specify the types of the arguments 
@@ -100,7 +107,11 @@
 // let myMultiply: (val1: number, val2: number) => number;
 // myMultiply = finalPrice;
 // myMultiply(2,3)
-//Complex object and type alias 
+// 3. Union types 
+// let myRealRealAge: number | string = 27 
+// myRealRealAge = "27"
+// myRealRealAge = true // Error
+// 4. Complex object and type alias 
 // let complex: {data: number[],
 //               output: (all: boolean) => number[]} = 
 //               {data: [100, 3.99, 10],
@@ -120,14 +131,3 @@
 //          output: function (all: boolean): number[] {
 //              return this.data;
 //          }}
-// Union types 
-// let myRealRealAge: number | string = 27 
-// myRealRealAge = "27"
-// myRealRealAge = true // Error
-// Type Never 
-// function neverReturns(): never {
-//     throw new Error('We should not reach this code block')
-// }
-// neverReturns()
-// Different of voids since it representes a piece of code that 
-// one should dsiscard . 

@@ -7,7 +7,6 @@
 
 //  ** Basic Types ** 
 
-
 // 1. string 
 //let myName: string = `Luiz Carneiro`;
 //let sentence: string = `My name is ${ myName }. 
@@ -110,6 +109,18 @@
 // }
 
 
+// 10. Type Never 
+// function neverReturns(): never {
+//     throw new Error('We should not reach this code block')
+// }
+
+// neverReturns()
+// Different of voids since it representes a piece of code that 
+// one should dsiscard . 
+
+
+
+
 //  ** Applying Types ** 
 
 // 1. functions 
@@ -156,7 +167,16 @@
 
 
 
-//Complex object and type alias 
+
+// 3. Union types 
+// let myRealRealAge: number | string = 27 
+// myRealRealAge = "27"
+// myRealRealAge = true // Error
+
+
+
+
+// 4. Complex object and type alias 
 // let complex: {data: number[],
 //               output: (all: boolean) => number[]} = 
 //               {data: [100, 3.99, 10],
@@ -182,19 +202,3 @@
     
 
 
-
-// Union types 
-// let myRealRealAge: number | string = 27 
-// myRealRealAge = "27"
-// myRealRealAge = true // Error
-
-
-
-// Type Never 
-// function neverReturns(): never {
-//     throw new Error('We should not reach this code block')
-// }
-
-// neverReturns()
-// Different of voids since it representes a piece of code that 
-// one should dsiscard . 
