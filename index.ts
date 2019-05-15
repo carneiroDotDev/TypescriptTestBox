@@ -201,4 +201,6 @@
 //          }}
     
 
+// const testFunction = (val1: number = 2, val2: number = 3): void => {console.log(val1 * val2)}
 
+// testFunction()

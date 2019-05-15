@@ -131,3 +131,9 @@
 //          output: function (all: boolean): number[] {
 //              return this.data;
 //          }}
+var testFunction = function (val1, val2) {
+    if (val1 === void 0) { val1 = 2; }
+    if (val2 === void 0) { val2 = 3; }
+    console.log(val1 * val2);
+};
+testFunction();
