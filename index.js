@@ -3,6 +3,19 @@
 //let myAge = 30
 //myAge = 'Luiz'   //Wrong because TS statically typed myAge as sting
 //                 // even thougn we did not do it explicitly.
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 //  ** Basic Types ** 
 // 1. string 
 //let myName: string = `Luiz Carneiro`;
@@ -162,7 +175,7 @@
 //     console.log(Paolito.origin)
 // }
 // Paolito.greetGender()
-//  Getters and Setters 
+// 1. Getters and Setters 
 var videoGames = /** @class */ (function () {
     function videoGames() {
         this.favourite = 'RE'; //Though its a private, we can set a setter 
@@ -185,3 +198,16 @@ var luizGames = new videoGames();
 console.log(luizGames._favourite);
 luizGames._favourite = 'Uncharted';
 console.log(luizGames._favourite);
+// 2. Static properties and methods 
+var consoles = /** @class */ (function (_super) {
+    __extends(consoles, _super);
+    function consoles() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    consoles.sayMyFavourite = function () {
+        return "My favourite videogame is the playstation " + this.playstation;
+    };
+    consoles.playstation = 3;
+    return consoles;
+}(videoGames));
+console.log(consoles.sayMyFavourite());

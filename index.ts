@@ -243,7 +243,7 @@
 // }
 // Paolito.greetGender()
 
-//  Getters and Setters 
+// 1. Getters and Setters 
 
 class videoGames {
     private favourite: string = 'RE' //Though its a private, we can set a setter 
@@ -263,3 +263,15 @@ let luizGames = new videoGames()
 console.log(luizGames._favourite)
 luizGames._favourite = 'Uncharted'
 console.log(luizGames._favourite)
+
+// 2. Static properties and methods 
+
+class consoles extends videoGames {
+    static playstation: number = 3;
+
+    static sayMyFavourite(): string {
+        return `My favourite videogame is the playstation ${this.playstation}`
+    }
+}
+
+console.log(consoles.sayMyFavourite())
