@@ -131,9 +131,57 @@
 //          output: function (all: boolean): number[] {
 //              return this.data;
 //          }}
-var testFunction = function (val1, val2) {
-    if (val1 === void 0) { val1 = 2; }
-    if (val2 === void 0) { val2 = 3; }
-    console.log(val1 * val2);
-};
-testFunction();
+// ** Powerfull Classes 
+// class Person {
+//     private type: string = 'Male'
+//     protected age: number
+//     origin: string = 'Rio'
+//     constructor(public firstName: string){
+//         this.age = this.setAge(30)
+//     }
+//     protected setAge(age: number): number{
+//         return age
+//     }
+//     greetGender(): void{
+//         console.log(`${this.firstName} has ${this.age} y.o and is a ${this.type}`)
+//     }
+// }
+// const luiz: Person = new Person("Luiz")
+// console.log(luiz.firstName, luiz.origin)
+// // console.log(luiz.firstName, luiz.type, luiz.age)
+// luiz.greetGender()
+// class Paolo extends Person {
+//     constructor(lastName: string){
+//         super('Paolinto')
+//         this.age = 41
+//     }
+// }
+// const Paolito = new Paolo('Gagari') 
+// Paolito.greetGender()
+// Paolo.prototype.greetGender = function(){
+//     console.log(Paolito.origin)
+// }
+// Paolito.greetGender()
+//  Getters and Setters 
+var videoGames = /** @class */ (function () {
+    function videoGames() {
+        this.favourite = 'RE'; //Though its a private, we can set a setter 
+    }
+    Object.defineProperty(videoGames.prototype, "_favourite", {
+        get: function () {
+            return this.favourite;
+        },
+        set: function (game) {
+            if (game.length > 3) {
+                this.favourite = game;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return videoGames;
+}());
+var luizGames = new videoGames();
+console.log(luizGames._favourite);
+luizGames._favourite = 'Uncharted';
+console.log(luizGames._favourite);

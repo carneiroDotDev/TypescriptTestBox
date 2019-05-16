@@ -201,6 +201,65 @@
 //          }}
     
 
-// const testFunction = (val1: number = 2, val2: number = 3): void => {console.log(val1 * val2)}
+// ** Powerfull Classes 
 
-// testFunction()
+// class Person {
+
+//     private type: string = 'Male'
+//     protected age: number
+//     origin: string = 'Rio'
+    
+//     constructor(public firstName: string){
+//         this.age = this.setAge(30)
+//     }
+
+//     protected setAge(age: number): number{
+//         return age
+//     }
+
+//     greetGender(): void{
+//         console.log(`${this.firstName} has ${this.age} y.o and is a ${this.type}`)
+//     }
+// }
+
+// const luiz: Person = new Person("Luiz")
+// console.log(luiz.firstName, luiz.origin)
+// // console.log(luiz.firstName, luiz.type, luiz.age)
+// luiz.greetGender()
+
+// class Paolo extends Person {
+//     constructor(lastName: string){
+//         super('Paolinto')
+//         this.age = 41
+//     }
+// }
+
+// const Paolito = new Paolo('Gagari') 
+
+// Paolito.greetGender()
+
+// Paolo.prototype.greetGender = function(){
+//     console.log(Paolito.origin)
+// }
+// Paolito.greetGender()
+
+//  Getters and Setters 
+
+class videoGames {
+    private favourite: string = 'RE' //Though its a private, we can set a setter 
+
+    get _favourite(): string{
+        return this.favourite
+    } 
+
+    set _favourite(game: string){
+        if (game.length > 3){
+            this.favourite = game
+        }
+    }
+}
+
+let luizGames = new videoGames()
+console.log(luizGames._favourite)
+luizGames._favourite = 'Uncharted'
+console.log(luizGames._favourite)
