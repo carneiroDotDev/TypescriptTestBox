@@ -3,19 +3,6 @@
 //let myAge = 30
 //myAge = 'Luiz'   //Wrong because TS statically typed myAge as sting
 //                 // even thougn we did not do it explicitly.
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 //  ** Basic Types ** 
 // 1. string 
 //let myName: string = `Luiz Carneiro`;
@@ -175,39 +162,42 @@ var __extends = (this && this.__extends) || (function () {
 //     console.log(Paolito.origin)
 // }
 // Paolito.greetGender()
-// 1. Getters and Setters 
-var videoGames = /** @class */ (function () {
-    function videoGames() {
-        this.favourite = 'RE'; //Though its a private, we can set a setter 
-    }
-    Object.defineProperty(videoGames.prototype, "_favourite", {
-        get: function () {
-            return this.favourite;
-        },
-        set: function (game) {
-            if (game.length > 3) {
-                this.favourite = game;
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return videoGames;
-}());
-var luizGames = new videoGames();
-console.log(luizGames._favourite);
-luizGames._favourite = 'Uncharted';
-console.log(luizGames._favourite);
-// 2. Static properties and methods 
-var consoles = /** @class */ (function (_super) {
-    __extends(consoles, _super);
-    function consoles() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    consoles.sayMyFavourite = function () {
-        return "My favourite videogame is the playstation " + this.playstation;
-    };
-    consoles.playstation = 3;
-    return consoles;
-}(videoGames));
-console.log(consoles.sayMyFavourite());
+// // 1. Getters and Setters 
+// class videoGames {
+//     private favourite: string = 'RE' //Though its a private, we can set a setter 
+//     get _favourite(): string{
+//         return this.favourite
+//     } 
+//     set _favourite(game: string){
+//         if (game.length > 3){
+//             this.favourite = game
+//         }
+//     }
+// }
+// let luizGames = new videoGames()
+// console.log(luizGames._favourite)
+// luizGames._favourite = 'Uncharted'
+// console.log(luizGames._favourite)
+// // 2. Static properties and methods 
+// class consoles extends videoGames {
+//     static playstation: number = 3;
+//     static sayMyFavourite(): string {
+//         return `My favourite videogame is the playstation ${this.playstation}`
+//     }
+// }
+// console.log(consoles.sayMyFavourite())
+// // 2. Private Contructors & Singletons 
+// class OnlyOne {
+//     private static instance: OnlyOne;
+//     private constructor (public readonly name: string){}
+//     static getInstance(){
+//         if(!OnlyOne.instance){
+//             OnlyOne.instance = new OnlyOne('The Only One')
+//         }
+//         return OnlyOne.instance
+//     }
+// }
+// // let wrong = new OnlyOne('The Only One')
+// let right = OnlyOne.getInstance()
+// console.log(right.name)
+// // right.name = 'Right'  //wrong since its a readonly property

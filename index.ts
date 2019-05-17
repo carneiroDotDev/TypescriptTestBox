@@ -243,35 +243,55 @@
 // }
 // Paolito.greetGender()
 
-// 1. Getters and Setters 
+// // 1. Getters and Setters 
+// class videoGames {
+//     private favourite: string = 'RE' //Though its a private, we can set a setter 
 
-class videoGames {
-    private favourite: string = 'RE' //Though its a private, we can set a setter 
+//     get _favourite(): string{
+//         return this.favourite
+//     } 
 
-    get _favourite(): string{
-        return this.favourite
-    } 
+//     set _favourite(game: string){
+//         if (game.length > 3){
+//             this.favourite = game
+//         }
+//     }
+// }
 
-    set _favourite(game: string){
-        if (game.length > 3){
-            this.favourite = game
-        }
-    }
-}
+// let luizGames = new videoGames()
+// console.log(luizGames._favourite)
+// luizGames._favourite = 'Uncharted'
+// console.log(luizGames._favourite)
 
-let luizGames = new videoGames()
-console.log(luizGames._favourite)
-luizGames._favourite = 'Uncharted'
-console.log(luizGames._favourite)
+// // 2. Static properties and methods 
 
-// 2. Static properties and methods 
+// class consoles extends videoGames {
+//     static playstation: number = 3;
 
-class consoles extends videoGames {
-    static playstation: number = 3;
+//     static sayMyFavourite(): string {
+//         return `My favourite videogame is the playstation ${this.playstation}`
+//     }
+// }
 
-    static sayMyFavourite(): string {
-        return `My favourite videogame is the playstation ${this.playstation}`
-    }
-}
+// console.log(consoles.sayMyFavourite())
 
-console.log(consoles.sayMyFavourite())
+// // 2. Private Contructors & Singletons 
+
+// class OnlyOne {
+//     private static instance: OnlyOne;
+
+//     private constructor (public readonly name: string){}
+
+//     static getInstance(){
+//         if(!OnlyOne.instance){
+//             OnlyOne.instance = new OnlyOne('The Only One')
+//         }
+//         return OnlyOne.instance
+//     }
+// }
+
+// // let wrong = new OnlyOne('The Only One')
+// let right = OnlyOne.getInstance()
+// console.log(right.name)
+// // right.name = 'Right'  //wrong since its a readonly property
+
