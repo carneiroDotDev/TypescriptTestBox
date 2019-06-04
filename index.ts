@@ -275,7 +275,7 @@
 
 // console.log(consoles.sayMyFavourite())
 
-// // 2. Private Contructors & Singletons 
+// // 3. Private Contructors & Singletons 
 
 // class OnlyOne {
 //     private static instance: OnlyOne;
@@ -295,3 +295,24 @@
 // console.log(right.name)
 // // right.name = 'Right'  //wrong since its a readonly property
 
+
+// 4. Generics 
+
+// function sumThings<T>(data1: T[], data2: T[]){
+//     return [data1, data2]
+// }
+
+// console.log(sumThings<number>([1],[2]))
+
+class SimpleMath<T extends number | string>{
+    baseValue!: T;
+    multipleValue!: T;
+    calculate(){
+        return +this.baseValue * +this.multipleValue
+    }
+}
+
+const simple = new SimpleMath();
+simple.baseValue = true;
+simple.multipleValue = '10';
+console.log(simple.calculate())

@@ -186,7 +186,7 @@
 //     }
 // }
 // console.log(consoles.sayMyFavourite())
-// // 2. Private Contructors & Singletons 
+// // 3. Private Contructors & Singletons 
 // class OnlyOne {
 //     private static instance: OnlyOne;
 //     private constructor (public readonly name: string){}
@@ -201,3 +201,20 @@
 // let right = OnlyOne.getInstance()
 // console.log(right.name)
 // // right.name = 'Right'  //wrong since its a readonly property
+// 4. Generics 
+// function sumThings<T>(data1: T[], data2: T[]){
+//     return [data1, data2]
+// }
+// console.log(sumThings<number>([1],[2]))
+var SimpleMath = /** @class */ (function () {
+    function SimpleMath() {
+    }
+    SimpleMath.prototype.calculate = function () {
+        return +this.baseValue * +this.multipleValue;
+    };
+    return SimpleMath;
+}());
+var simple = new SimpleMath();
+simple.baseValue = '10';
+simple.multipleValue = '10';
+console.log(simple.calculate());
