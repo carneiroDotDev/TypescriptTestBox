@@ -215,6 +215,6 @@ var SimpleMath = /** @class */ (function () {
     return SimpleMath;
 }());
 var simple = new SimpleMath();
-simple.baseValue = '10';
+simple.baseValue = 10;
 simple.multipleValue = '10';
 console.log(simple.calculate());

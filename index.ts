@@ -313,6 +313,6 @@ class SimpleMath<T extends number | string>{
 }
 
 const simple = new SimpleMath();
-simple.baseValue = true;
+simple.baseValue = 10;
 simple.multipleValue = '10';
 console.log(simple.calculate())
